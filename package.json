@@ -2,14 +2,6 @@
   "name": "keycloak-angular",
   "version": "10.0.1",
   "description": "Easy Keycloak setup for Angular applications",
-  "scripts": {
-    "clean": "shx rm -rf ./dist/",
-    "build": "npm run clean && ng build keycloak-angular --configuration production",
-    "test": "ng test keycloak-angular",
-    "lint": "ng lint && prettier -c .",
-    "lint:fix": "prettier --write .",
-    "typecheck": "tsc --noEmit"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/mauriciovigolo/keycloak-angular.git"
@@ -26,53 +18,40 @@
   "homepage": "https://github.com/mauriciovigolo/keycloak-angular#readme",
   "keywords": [
     "angular",
+    "keycloak",
+    "keycloak-js",
     "authentication",
     "authorization",
-    "keycloak",
-    "keycloak-js"
+    "oauth2",
+    "oidc"
   ],
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~13.3.1",
-    "@angular-devkit/core": "^13.3.1",
-    "@angular-eslint/builder": "13.2.0",
-    "@angular-eslint/eslint-plugin": "13.2.0",
-    "@angular-eslint/eslint-plugin-template": "13.2.0",
-    "@angular-eslint/schematics": "13.2.0",
-    "@angular-eslint/template-parser": "13.2.0",
-    "@angular/cli": "^13.3.1",
-    "@angular/common": "^13.3.1",
-    "@angular/compiler": "^13.3.1",
-    "@angular/compiler-cli": "^13.3.1",
-    "@angular/core": "^13.3.1",
-    "@angular/language-service": "^13.3.1",
-    "@angular/platform-browser": "^13.3.1",
-    "@angular/platform-browser-dynamic": "^13.3.1",
-    "@angular/router": "^13.3.1",
-    "@types/jasmine": "^4.0.2",
-    "@types/jasminewd2": "^2.0.10",
-    "@types/node": "^17.0.23",
-    "@typescript-eslint/eslint-plugin": "^5.18.0",
-    "@typescript-eslint/parser": "^5.18.0",
-    "all-contributors-cli": "^6.20.0",
-    "eslint": "^8.12.0",
-    "jasmine-core": "^4.0.1",
-    "jasmine-spec-reporter": "^7.0.0",
-    "karma": "~6.3.17",
-    "karma-chrome-launcher": "~3.1.1",
-    "karma-coverage-istanbul-reporter": "~3.0.3",
-    "karma-jasmine": "~4.0.2",
-    "karma-jasmine-html-reporter": "^1.7.0",
-    "keycloak-js": "^18.0.0",
-    "ng-packagr": "^13.3.0",
-    "prettier": "^2.6.2",
-    "protractor": "~7.0.0",
-    "rxjs": "^7.5.5",
-    "shx": "^0.3.4",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.3",
-    "zone.js": "~0.11.5"
+  "peerDependencies": {
+    "@angular/common": "^13",
+    "@angular/core": "^13",
+    "@angular/router": "^13",
+    "keycloak-js": "^18"
   },
   "dependencies": {
-    "tslib": "^2.3.1"
-  }
+    "tslib": "^2.3.0"
+  },
+  "module": "fesm2015/keycloak-angular.mjs",
+  "es2020": "fesm2020/keycloak-angular.mjs",
+  "esm2020": "esm2020/keycloak-angular.mjs",
+  "fesm2020": "fesm2020/keycloak-angular.mjs",
+  "fesm2015": "fesm2015/keycloak-angular.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/keycloak-angular.mjs",
+      "es2020": "./fesm2020/keycloak-angular.mjs",
+      "es2015": "./fesm2015/keycloak-angular.mjs",
+      "node": "./fesm2015/keycloak-angular.mjs",
+      "default": "./fesm2020/keycloak-angular.mjs"
+    }
+  },
+  "sideEffects": false
 }
